@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "title": "Spacement API"
   },
-  "host": "gis-service-doc.herokuapp.com",
+  "host": "gis-service-test.herokuapp.com",
   "tags": [
     {
       "name": "location",
