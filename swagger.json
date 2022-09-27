@@ -93,13 +93,25 @@
           "application/xml",
           "application/json"
         ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "",
             "required": true,
-            "type": "string"
+            "description": "",
+            "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Location"
+            }
           }
         ],
         "responses": {
