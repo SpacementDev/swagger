@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "title": "Spacement API"
   },
-  "host": "localhost:8000",
+  "host": "40a7-122-153-6-186,jp.ngrok.io",
   "tags": [
     {
       "name": "location",
@@ -13,7 +13,7 @@
     }
   ],
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/timeProximity": {
