@@ -78,11 +78,11 @@
       "properties": {
         "longitude": {
           "type": "number",
-          "example": 13.404954
+          "example": 127.0991
         },
         "latitude": {
           "type": "number",
-          "example": 52.520008
+          "example": 37.5171
         },
         "minutes": {
           "type": "integer",
