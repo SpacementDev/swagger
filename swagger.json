@@ -73,7 +73,8 @@
       "required": [
         "longitude",
         "latitude",
-        "minute"
+        "minute",
+        "stime"
       ],
       "properties": {
         "longitude": {
@@ -87,6 +88,10 @@
         "minutes": {
           "type": "integer",
           "example": 10
+        },
+        "stime": {
+          "type": "text"
+          "example": "2023-01-09 10:31:00"
         }
       }
     }
