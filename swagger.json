@@ -90,7 +90,7 @@
           "example": 10
         },
         "stime": {
-          "type": "text"
+          "type": "text",
           "example": "2023-01-09 10:31:00"
         }
       }
