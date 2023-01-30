@@ -1,9 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "This is sample server of Spacement.  ",
+    "description": "Timemaps™ 의 API 문서입니다. 발급받은 API key를 사용해 인증하시면 요청/응답 테스트도 가능합니다. ",
     "version": "1.0.0",
-    "title": "Spacement API"
+    "title": "Timemaps™ API"
   },
   "host": "spacement.herokuapp.com",
   "tags": [
@@ -15,15 +15,22 @@
   "schemes": [
     "https"
   ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
   "paths": {
     "/timeProximity": {
       "post": {
         "tags": [
           "TimeProximity"
         ],
-        "summary": "Create a time-proximity polygon",
-        "description": "Create a time-proximity polygon with provided value",
-        "operationId": "addLocation",
+        "summary": "시간복잡도 폴리곤 API",
+        "description": "입력받은 좌표와 시간대를 이용해 특정 시간동안 이동할 수 있는 범위를 폴리곤 형태로 리턴합니다.",
+        "operationId": "TimeProximity",
         "consumes": [
           "application/json",
           "application/xml"
@@ -43,6 +50,11 @@
             }
           }
         ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
         "responses": {
           "405": {
             "description": "Invalid input"
@@ -55,12 +67,11 @@
         "tags": [
           "TimeProximityRank"
         ],
-        "summary": "Create a time-proximity polygon",
-        "description": "Create a time-proximity polygon with provided value",
-        "operationId": "addLocation",
+        "summary": "접근성 랭킹 API",
+        "description": "입력된 데이터를 목표 좌표로부터 접근성이 좋은 순으로 정렬하여 리턴합니다.",
+        "operationId": "TimeProximityRank",
         "consumes": [
-          "application/json",
-          "application/xml"
+          "multipart/form-data"
         ],
         "produces": [
           "application/xml",
@@ -68,13 +79,24 @@
         ],
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
+            "in": "formData",
+            "name": "file",
+            "type": "file",
+            "required": false,
+            "description": "The file to upload."
+          },
+          {
+            "in": "formData",
+            "name": "json",
+            "type": "string",
             "description": "",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/TimeProximityRank"
-            }
+            "default": "{\"source_lon\": 127.0991,\"source_lat\": 37.5171,\"start_time\": \"2023-01-09 03:31:00\", \"minutes\": 10, \"preset\": 0}",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
           }
         ],
         "responses": {
@@ -83,22 +105,6 @@
           }
         }
       }
-    }
-  },
-  "securityDefinitions": {
-    "petstore_auth": {
-      "type": "oauth2",
-      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
-      "flow": "implicit",
-      "scopes": {
-        "write:pets": "modify pets in your account",
-        "read:pets": "read your pets"
-      }
-    },
-    "api_key": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header"
     }
   },
   "definitions": {
@@ -124,7 +130,7 @@
           "example": 10
         },
         "stime": {
-          "type": "text",
+          "type": "string",
           "example": "2023-01-09 10:31:00"
         }
       }
@@ -151,7 +157,7 @@
           "example": 10
         },
         "start_time": {
-          "type": "text",
+          "type": "string",
           "example": "2023-01-09 10:31:00"
         },
         "preset": {
