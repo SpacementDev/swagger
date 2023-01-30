@@ -8,7 +8,7 @@
   "host": "spacement.herokuapp.com",
   "tags": [
     {
-      "name": "location",
+      "name": "TimeProximity",
       "description": ""
     }
   ],
@@ -19,7 +19,7 @@
     "/timeProximity": {
       "post": {
         "tags": [
-          "location"
+          "TimeProximity"
         ],
         "summary": "Create a time-proximity polygon",
         "description": "Create a time-proximity polygon with provided value",
@@ -39,7 +39,7 @@
             "description": "",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Location"
+              "$ref": "#/definitions/TimeProximity"
             }
           }
         ],
@@ -68,7 +68,7 @@
     }
   },
   "definitions": {
-    "Location": {
+    "TimeProximity": {
       "type": "object",
       "required": [
         "longitude",
