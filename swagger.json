@@ -49,6 +49,40 @@
           }
         }
       }
+    },
+    "/timeProximityRank": {
+      "post": {
+        "tags": [
+          "TimeProximityRank"
+        ],
+        "summary": "Create a time-proximity polygon",
+        "description": "Create a time-proximity polygon with provided value",
+        "operationId": "addLocation",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TimeProximityRank"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
     }
   },
   "securityDefinitions": {
@@ -63,7 +97,7 @@
     },
     "api_key": {
       "type": "apiKey",
-      "name": "api_key",
+      "name": "Authorization",
       "in": "header"
     }
   },
@@ -92,6 +126,37 @@
         "stime": {
           "type": "text",
           "example": "2023-01-09 10:31:00"
+        }
+      }
+    },
+    "TimeProximityRank": {
+      "type": "object",
+      "required": [
+        "longitude",
+        "latitude",
+        "minute",
+        "stime"
+      ],
+      "properties": {
+        "source_lon": {
+          "type": "number",
+          "example": 127.0991
+        },
+        "source_lat": {
+          "type": "number",
+          "example": 37.5171
+        },
+        "minutes": {
+          "type": "integer",
+          "example": 10
+        },
+        "start_time": {
+          "type": "text",
+          "example": "2023-01-09 10:31:00"
+        },
+        "preset": {
+          "type": "integer",
+          "example": 0
         }
       }
     }
