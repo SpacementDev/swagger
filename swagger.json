@@ -56,8 +56,17 @@
           }
         ],
         "responses": {
-          "405": {
-            "description": "Invalid input"
+          "200": {
+            "description": "정상적으로 GeoJSON이 리턴됩니다."
+          },
+          "400": {
+            "description": "헤더에 API키가 존재하지 않습니다."
+          },
+          "401": {
+            "description": "잘못된 API키 입니다."
+          },
+          "402": {
+            "description": "API키가 만료 혹은 소진 되었습니다."
           }
         }
       }
@@ -95,8 +104,17 @@
           }
         ],
         "responses": {
-          "405": {
-            "description": "Invalid input"
+          "200": {
+            "description": "정상적으로 meters와 seconds가 리턴됩니다."
+          },
+          "400": {
+            "description": "헤더에 API키가 존재하지 않습니다."
+          },
+          "401": {
+            "description": "잘못된 API키 입니다."
+          },
+          "402": {
+            "description": "API키가 만료 혹은 소진 되었습니다."
           }
         }
       }
@@ -104,11 +122,11 @@
     "/timeProximityWithin": {
       "post": {
         "tags": [
-          "timeProximityWithin"
+          "TimeProximityWithin"
         ],
         "summary": "접근성 랭킹 API",
         "description": "입력된 데이터에서 목표 좌표로부터 특정 시간접근성 이내에 있는 데이터를 추출하여 리턴합니다.",
-        "operationId": "timeProximityWithin",
+        "operationId": "TimeProximityWithin",
         "consumes": [
           "multipart/form-data"
         ],
@@ -139,8 +157,17 @@
           }
         ],
         "responses": {
-          "405": {
-            "description": "Invalid input"
+          "200": {
+            "description": "정상적으로 공간데이터의 배열이 리턴됩니다."
+          },
+          "400": {
+            "description": "헤더에 API키가 존재하지 않습니다."
+          },
+          "401": {
+            "description": "잘못된 API키 입니다."
+          },
+          "402": {
+            "description": "API키가 만료 혹은 소진 되었습니다."
           }
         }
       }
@@ -183,8 +210,17 @@
           }
         ],
         "responses": {
-          "405": {
-            "description": "Invalid input"
+          "200": {
+            "description": "정상적으로 공간데이터의 배열이 리턴됩니다."
+          },
+          "400": {
+            "description": "헤더에 API키가 존재하지 않습니다."
+          },
+          "401": {
+            "description": "잘못된 API키 입니다."
+          },
+          "402": {
+            "description": "API키가 만료 혹은 소진 되었습니다."
           }
         }
       }
