@@ -62,6 +62,89 @@
         }
       }
     },
+    "/timeProximityRoute": {
+      "post": {
+        "tags": [
+          "TimeProximityRoute"
+        ],
+        "summary": "시간복잡도 계산 API",
+        "description": "두 좌표 사이의 거리와 시간을 계산하여 미터/초 형식으로 리턴합니다.",
+        "operationId": "TimeProximityRoute",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TimeProximityRoute"
+            }
+          }
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/timeProximityWithin": {
+      "post": {
+        "tags": [
+          "timeProximityWithin"
+        ],
+        "summary": "접근성 랭킹 API",
+        "description": "입력된 데이터에서 목표 좌표로부터 특정 시간접근성 이내에 있는 데이터를 추출하여 리턴합니다.",
+        "operationId": "timeProximityWithin",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "file",
+            "type": "file",
+            "required": false,
+            "description": "The file to upload."
+          },
+          {
+            "in": "formData",
+            "name": "json",
+            "type": "string",
+            "description": "",
+            "default": "{\"source_lon\": 127.0991,\"source_lat\": 37.5171,\"start_time\": \"2023-01-09 03:31:00\", \"minutes\": 10, \"preset\": 0}",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
     "/timeProximityRank": {
       "post": {
         "tags": [
@@ -135,7 +218,7 @@
         }
       }
     },
-    "TimeProximityRank": {
+    "TimeProximityRoute": {
       "type": "object",
       "required": [
         "longitude",
@@ -152,23 +235,19 @@
           "type": "number",
           "example": 37.5171
         },
-        "minutes": {
-          "type": "integer",
-          "example": 10
+        "target_lon": {
+          "type": "number",
+          "example": 127.0186
+        },
+        "target_lat": {
+          "type": "number",
+          "example": 37.654
         },
         "start_time": {
           "type": "string",
           "example": "2023-01-09 10:31:00"
-        },
-        "preset": {
-          "type": "integer",
-          "example": 0
         }
       }
     }
-  },
-  "externalDocs": {
-    "description": "Find out more about Swagger",
-    "url": "http://swagger.io"
   }
 }
