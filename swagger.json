@@ -71,6 +71,54 @@
         }
       }
     },
+    "/timeProximityGrid": {
+      "post": {
+        "tags": [
+          "TimeProximityGrid"
+        ],
+        "summary": "시간복잡도 격자 폴리곤 API",
+        "description": "입력받은 좌표와 시간대를 이용해 특정 시간동안 이동할 수 있는 범위를 격자 폴리곤 형태로 리턴합니다.",
+        "operationId": "TimeProximityGrid",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TimeProximity"
+            }
+          }
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "정상적으로 격자 GeoJSON이 리턴됩니다."
+          },
+          "400": {
+            "description": "헤더에 API키가 존재하지 않습니다."
+          },
+          "401": {
+            "description": "잘못된 API키 입니다."
+          },
+          "402": {
+            "description": "API키가 만료 혹은 소진 되었습니다."
+          }
+        }
+      }
+    },
     "/timeProximityRoute": {
       "post": {
         "tags": [
