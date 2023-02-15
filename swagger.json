@@ -28,7 +28,7 @@
         "tags": [
           "TimeProximity"
         ],
-        "summary": "시간복잡도 폴리곤 API",
+        "summary": "시간접근성 폴리곤 API",
         "description": "입력받은 좌표와 시간대를 이용해 특정 시간동안 이동할 수 있는 범위를 폴리곤 형태로 리턴합니다.",
         "operationId": "TimeProximity",
         "consumes": [
@@ -76,7 +76,7 @@
         "tags": [
           "TimeProximityGrid"
         ],
-        "summary": "시간복잡도 격자 폴리곤 API",
+        "summary": "시간접근성 격자 폴리곤 API",
         "description": "입력받은 좌표와 시간대를 이용해 특정 시간동안 이동할 수 있는 범위를 격자 폴리곤 형태로 리턴합니다.",
         "operationId": "TimeProximityGrid",
         "consumes": [
@@ -124,7 +124,7 @@
         "tags": [
           "TimeProximityRoute"
         ],
-        "summary": "시간복잡도 계산 API",
+        "summary": "시간접근성 계산 API",
         "description": "두 좌표 사이의 거리와 시간을 계산하여 미터/초 형식으로 리턴합니다.",
         "operationId": "TimeProximityRoute",
         "consumes": [
@@ -172,7 +172,7 @@
         "tags": [
           "TimeProximityWithin"
         ],
-        "summary": "접근성 랭킹 API",
+        "summary": "범위 판별 API",
         "description": "입력된 데이터에서 목표 좌표로부터 특정 시간접근성 이내에 있는 데이터를 추출하여 리턴합니다.",
         "operationId": "TimeProximityWithin",
         "consumes": [
