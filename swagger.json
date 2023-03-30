@@ -172,7 +172,7 @@
         "tags": [
           "TimeProximityWithin"
         ],
-        "summary": "범위 판별 API",
+        "summary": "시간접근성 영역 쿼리(Spatial Query) API",
         "description": "입력된 데이터에서 목표 좌표로부터 특정 시간접근성 이내에 있는 데이터를 추출하여 리턴합니다.",
         "operationId": "TimeProximityWithin",
         "consumes": [
